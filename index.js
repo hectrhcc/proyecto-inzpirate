@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
+//const cors = require('cors');
 // middleware para manejar datos del formulario
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
+//app.use(cors());
 
 // Indicamos que la carpeta 'public' contiene los archivos estáticos
 app.use(express.static('public'));
