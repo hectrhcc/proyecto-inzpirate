@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
+    <title>Agenda Semanal</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="../estilo2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <h2>Agenda Semanal</h2><br/>
+    <br/>
+    <form action="url_del_servidor" method="POST">
+        <div>
+          <label for="persona" >Integrante:</label>
+          <select id="persona">
+            <option value="conniecardenas">Connie Cárdenas</option>
+            <option value="carmensegovia">Carmen Segovia</option>
+            <option value="nancysalazar">Nancy Salazar</option>
+            <option value="gracielamamani">Graciela Mamani</option>
+            <option value="jaquelinefrugonne">Jaqueline Frugonne</option>
+            <option value="macarenamonrroy">Macarena Monrroy</option>
+            <option value="andresgalleguillos">Andrés Galleguillos</option>
+            <option value="hectorcontreras">Héctor Contreras</option>
+            <option value="albertoramos">Alberto Ramos</option>
+            <option value="florangelvargas">Florangel Vargas</option>
+          </select>      
+          <label for="tarea" >Tarea:</label>
+          <input type="text" value="" id="tarea" name="actividad" placeholder="Nombre de tarea">
+        </div>
+      <div ><br/>
+          <label for="startDate">Fecha Inicio:</label>
+          <input type="date" id="startDate">
+          <label for="endDate">Fecha Termino:</label>
+          <input type="date" id="endDate">
+        </div>
+        <div><br>
+         <button type="button" id="tareasemanal" class="tareaSemanal">Agregar tarea</button></div>
+      </div>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Integrante:</th>
+          <th>Tarea:</th>
+          <th>Fecha Inicio:</th>
+          <th>Fecha Termino:</th>
+          <th>borrar </th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+    <script src="index.js"></script><br/>
+    <div class="botones"><button onclick="saveTasks()">Guardar en un excel</button></div>
+</body>
+</html>

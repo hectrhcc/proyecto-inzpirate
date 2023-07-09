@@ -1,0 +1,150 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/*centrar contenido */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:#fff;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+ /*overflow: hidden; oculta la barra*/
+}
+
+
+
+h1,h2,h3{
+  font-family: Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+  text-align: center;
+  color:#333;
+}
+
+th {
+	padding:28px;
+  }
+
+.botonagregar{
+  width: 60%;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #00BFFF;
+  color: white;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.agregarItem{
+    width: 23%;
+    margin-top: 5px;
+    text-align: center;
+    background-color: #00BFFF;
+    color: white;
+    border: 0.8px solid black;
+    padding:3px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.botonagregarAsis{
+    width: 40%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #00BFFF;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+  
+.parrafo{
+    text-align: center;
+    text-justify: inter-word;
+    white-space: pre-line;
+    /*font-weight: bold; texto en negrita*/
+}
+
+p {
+    width: 200px;
+    text-align: left;
+  }
+  .titulo {
+    border-bottom: 1px solid black;
+  }
+
+.guardarTarea{
+    width: 35%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #00BFFF;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;  
+}
+  
+.tareaSemanal{
+    width: 23%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #00BFFF;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+.tareaMensual{
+    width: 18%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #00BFFF;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+.registro{
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  margin: auto;  
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botones button {
+  font-size: 13px;
+  padding: 5px;
+  margin: 14px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}

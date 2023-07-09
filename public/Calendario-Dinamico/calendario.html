@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
+    <title>Calendario de Actividades</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="../estilo2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+  </head>
+  <body><br/>
+    <h2>Calendario de Actividades</h2><br/>
+    <div>Sistema para ingresar todas las activades realizadas en el Proyecto Inzpirate 2023</div>
+    <br/>
+    <form action="https://proyecto-inzpirate.netlify.app/agregar-actividad" method="POST">
+      <div>
+        <div>
+          <label for="actividad" >Actividad:</label>
+          <input type="text" value="" id="actividad" name="actividad" placeholder="Nombre de actividad">
+        </div>
+        <div>
+          <label for="lugar">Dirección:</label>
+          <input type="text" id="lugar" value=""  name="direccion" placeholder="Dirección">
+        </div>
+        <div>
+          <label for="comuna">Comuna:  </label>
+          <select id="comuna" value="" name="comuna">
+            <option value="Arica">Arica</option>
+            <option value="Putre">Putre</option>
+            <option value="General-Lagos">General Lagos</option>
+            <option value="Camarones">Camarones</option>
+          </select>
+        </div>
+      </div>
+      <div >
+        <div>
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" name="fecha">
+        </div>
+        <div>
+         <button type="submit" id="agregarActividad" class="botonagregar">Agregar actividad</button></div>
+      </div>
+    </div>
+    </form>
+    <table id="tableBody">
+      <thead>
+        <tr>
+          <th>Nombre Actividad</th>
+          <th>Dirección</th>
+          <th>Comuna</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody >
+      </tbody>
+    </table>
+    <script src="calendario.js"></script><br/>
+    <div class="botones">
+    <button id="download" onclick="descargarExcel()">Guardar en excel</button></div>
+</body>
+</html>

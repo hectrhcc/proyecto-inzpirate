@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
+    <link rel="stylesheet" href="../estilo2.css">
+    <title>Control de Asistencia</title>
+</head>
+<body>
+  <h2>Control de Asistencia</h2><br/>
+  <div class="parrafo">Se marcan las horas de entrada y salida
+    tanto en la mañana como en la tarde.
+    En total realizar 4 marcajes al día.</div><br/>
+  <form>
+    <label for="persona">Nombre:</label>
+    <select id="persona">
+      <option value="conniecardenas">Connie Cárdenas</option>
+      <option value="carmensegovia">Carmen Segovia</option>
+      <option value="nancysalazar">Nancy Salazar</option>
+      <option value="gracielamamani">Graciela Mamani</option>
+      <option value="jaquelinefrugonne">Jaqueline Frugonne</option>
+      <option value="macarenamonrroy">Macarena Monrroy</option>
+      <option value="andresgalleguillos">Andrés Galleguillos</option>
+      <option value="hectorcontreras">Héctor Contreras</option>
+      <option value="albertoramos">Alberto Ramos</option>
+      <option value="florangelvargas">Florangel Vargas</option>
+    </select>
+    <br><!-- asistencia nombre persona, hora de ingreso y salida en la mañana y en la tarde
+    fecha dia mes año 
+    la idea es que sea facil solo seleccionar o agregar el nombre y apretar un boton   
+     la hora la toma del sistema    
+-->
+    <!--<input type="text" id="task">-->
+    <br/>
+    <button type="button" id="agregarAsistencia" class="botonagregarAsis" >Marcar Asistencia</button>
+  </form>
+  <br>
+  <!--sacar la hora del sistema para cuando agregue la asistencia
+    tambien sacar la fecha del dia mes y año 
+-->
+<p class="titulo">Mañana</p>
+<p>Hora Ingreso:</p>
+<p>Hora Salida:</p>
+<br/>
+<p class="titulo">Tarde</p>
+<p>Hora Ingreso:</p>
+<p>Hora Salida:</p>
+<br>
+<p>Fecha:</p>
+<p>Nombre:<!--aqui agregar en js--></p>
+<br/>
+  <div class="botones"><button onclick="">Guardar en pdf</button><button onclick="" class="registro">Ver registros</button></div>
+</body>
+</html>

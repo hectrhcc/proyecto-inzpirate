@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
+    <link rel="stylesheet" href="../estilo2.css">
+    <title>Gastos del Programa</title>
+</head>
+<body>
+<h2>Gastos del Programa</h2>
+<br/>
+<form>
+    <label for="item">item:</label>
+    <input type="text" value="" id="item" name="item" placeholder="Nombre de item">
+    <button type="button" id="agregarItem" class="agregarItem">Agregar</button>
+  </form>
+  <br>
+  <!--sacar la hora del sistema para cuando agregue la asistencia
+    tambien sacar la fecha del dia mes y año 
+-->
+    <table>
+    <thead>
+      <tr>
+        <th>Listado de Item</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+  <div class="botones">
+  <button onclick="saveTasks();">Guardar en excel</button></div>
+</body>
+</html>
