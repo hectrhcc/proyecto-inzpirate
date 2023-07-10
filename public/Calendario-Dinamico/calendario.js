@@ -68,3 +68,24 @@ function descargarExcel() {
   // Descarga el archivo Excel
   XLSX.writeFile(workbook, 'actividades.xlsx');
 }
+
+
+function reloadPage() {
+  location.reload();
+}
+
+$(document).ready(function() {
+  $("#agregarActividad").click(function() {
+    reloadPage();
+  });
+});
+
+
+$('form').submit(function(event) {
+  // Evita que el formulario se envíe de forma predeterminada
+  event.preventDefault();
+  // Envía el formulario al servidor
+  agregarActividad();
+  // Recarga la página
+  reloadPage();
+});

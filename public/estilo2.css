@@ -32,6 +32,11 @@ th {
 	padding:28px;
   }
 
+td {
+  padding-right:50px;
+  padding-left:50px;
+}
+
 .botonagregar{
   width: 60%;
   margin-top: 20px;
