@@ -12,15 +12,30 @@ function actualizarTabla(actividades) {
     let nombre = actividad.actividad;
     let direccion = actividad.direccion;  
     let comuna = actividad.comuna;  
-    let fecha = new Date(actividad.fecha);
+
+    //let fecha = new Date(actividad.fecha);
     // Formatea la fecha
-    let fechaFormateada = fecha.toLocaleDateString('es-CL');
- 
+    //let fechaFormateada = fecha.toLocaleDateString('es-CL');
+    // Obtener fecha de la DB 
+    const fechaDb = actividad.fecha;
+
+    // Crear objeto Date 
+    const fecha = new Date(fechaDb);
+
+    // Convertir a zona Chile
+    fecha.setTime(fecha.getTime() + fecha.getTimezoneOffset()*60*1000);
+
+    // Formatear fecha
+    const fechaChile = fecha.toLocaleDateString("es-CL");
+
+    // Mostrar fecha convertida
+    console.log(fechaChile);
+    
     $('#tableBody tbody').append('<tr>')      
     $('#tableBody tbody tr:last').append('<td>'+nombre+'</td>')     
     $('#tableBody tbody tr:last').append('<td>'+direccion+'</td>')     
     $('#tableBody tbody tr:last').append('<td>'+comuna+'</td>')     
-    $('#tableBody tbody tr:last').append('<td>'+fechaFormateada+'</td>')            
+    $('#tableBody tbody tr:last').append('<td>'+fechaChile+'</td>')            
     $('#tableBody tbody tr:last').append('</tr>')  
   });
 }
