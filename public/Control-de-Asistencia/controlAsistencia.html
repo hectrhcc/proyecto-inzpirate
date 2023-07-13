@@ -13,12 +13,11 @@
   <div class="parrafo">Se marcan las horas de entrada y salida
     tanto en la mañana como en la tarde.
     En total realizar 4 marcajes al día.</div><br/>
-    <span id="fecha"></span></p><br/>
+    <br/>
   <form>
     <label for="persona">Nombre:</label>
     <select id="persona">
       <option value="conniecardenas">Connie Cárdenas</option>
-      <option value="carmensegovia">Carmen Segovia</option>
       <option value="nancysalazar">Nancy Salazar</option>
       <option value="gracielamamani">Graciela Mamani</option>
       <option value="jaquelinefrugonne">Jaqueline Frugonne</option>
@@ -33,25 +32,58 @@
     la idea es que sea facil solo seleccionar o agregar el nombre y apretar un boton   
      la hora la toma del sistema    
 -->
+<br/>
     <!--<input type="text" id="task">-->
-    <br/>
-    <button type="button" id="agregarAsistencia" class="botonagregarAsis" >Marcar Asistencia</button>
+    <h4>Mañana:</h4>
+    <label for="horaEntradaMa" class="horas">Hora Ingreso:</label>
+    <button type="submit" id="horaEntradaMa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <br/><br/>
+    <label for="horaSalidaMa" class="horas">Hora Salida:</label>
+    <button type="submit" id="horaSalidaMa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <br/><br/><hr><br/>
+    <h4>Tarde:</h4>
+    <label for="horaEntradaMa" class="horas">Hora Ingreso:</label>
+    <button type="submit" id="horaEntradaTa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <br/><br/>
+    <label for="horaEntradaMa" class="horas">Hora Salida:</label>
+    <button type="submit" id="horaSalidaTa" value="" class="botonagregarHoras" style="">Marcar</button>
   </form>
-  <br>
-  <!--sacar la hora del sistema para cuando agregue la asistencia
-    tambien sacar la fecha del dia mes y año 
--->
-<p class="titulo">Mañana</p>
-<p>Hora Ingreso:</p>
-<p>Hora Salida:</p>
+<!--
+<table id="tablaMarcaje1">
+  <thead>
+    <tr>
+      <th>Mañana</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody >
+     <tr>
+			<td>Hora Ingreso:</td>
+			<td></td>
+		</tr>
+  <tr>
+			<td>Hora Salida:</td>
+			<td></td>
+		</tr>
+  
+  </tbody>
+</table>
+
+<table id="tablaMarcaje2">
+  <thead>
+    <tr>
+      <th>Tarde</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody >
+  </tbody>
+  </table>
+  <p>Fecha:</p>
+<br/>-->
 <br/>
-<p class="titulo">Tarde</p>
-<p>Hora Ingreso:</p>
-<p>Hora Salida:</p>
-<br>
-<p>Fecha:</p>
-<p>Nombre:<!--aqui agregar en js--></p>
-<br/>
-  <div class="botones"><button onclick="">Guardar en pdf</button></div>
+  <div class="botones">
+    <button onclick="">Guardar en pdf</button>
+  </div>
 </body>
 </html>

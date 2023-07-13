@@ -152,4 +152,29 @@ p {
   color: #fff;
   cursor: pointer;
   outline: none;
+  background-color: #222;
+  color: white;
+  border: 1px solid black;
+}
+
+
+.botonagregarHoras{
+  width: 40%;
+  margin-top: 0px;
+  text-align: center;
+  background-color: #00BFFF;
+  color: white;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  width: 100px; 
+  vertical-align: middle;
+}
+
+.horas{
+  display: inline-block; 
+  width: 100px; 
+  vertical-align: middle;
 }
