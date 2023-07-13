@@ -12,22 +12,14 @@ function actualizarTabla(actividades) {
     let nombre = actividad.actividad;
     let direccion = actividad.direccion;  
     let comuna = actividad.comuna;  
-
-    //let fecha = new Date(actividad.fecha);
-    // Formatea la fecha
-    //let fechaFormateada = fecha.toLocaleDateString('es-CL');
     // Obtener fecha de la DB 
     const fechaDb = actividad.fecha;
-
     // Crear objeto Date 
     const fecha = new Date(fechaDb);
-
     // Convertir a zona Chile
     fecha.setTime(fecha.getTime() + fecha.getTimezoneOffset()*60*1000);
-
     // Formatear fecha
     const fechaChile = fecha.toLocaleDateString("es-CL");
-
     // Mostrar fecha convertida
     console.log(fechaChile);
     
