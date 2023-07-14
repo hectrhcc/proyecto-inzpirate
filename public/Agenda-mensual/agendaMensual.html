@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
+    <title>Agenda Mensual</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="../estilo2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <h2>Agenda Mensual</h2><br/>
+    <br/>
+    <form action="https://proyecto-inzpirate.vercel.app/agregar-mes" method="POST">
+        <div>
+          <label for="persona" >Integrante:</label>
+          <select id="persona">
+            <option value="Connie Cardenas">Connie Cárdenas</option>
+            <option value="Nancy Salazar">Nancy Salazar</option>
+            <option value="Graciela Mamani">Graciela Mamani</option>
+            <option value="Jaqueline Frugonne">Jaqueline Frugonne</option>
+            <option value="Macarena Monrroy">Macarena Monrroy</option>
+            <option value="Andres Galleguillos">Andrés Galleguillos</option>
+            <option value="Hector Contreras">Héctor Contreras</option>
+            <option value="Alberto Ramos">Alberto Ramos</option>
+            <option value="Florangel Vargas">Florangel Vargas</option>
+          </select>      
+          <label for="tarea" >Tarea:</label>
+          <input type="text" value="" id="tarea" name="tarea" placeholder="Nombre de tarea">
+          <label for="mes">Mes:</label>
+          <select id="mes">
+            <option value="Julio">Julio</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Septiembre">Septiembre</option>
+            <option value="Octubre">Octubre</option>
+            <option value="Noviembre">Noviembre</option>
+            <option value="Diciembre">Diciembre</option>
+          </select>
+        </div>
+        <div><br>
+         <button type="submit" id="tareamensual" class="tareaMensual">Agregar tarea</button></div>
+      </div>
+    </form>
+    <table id="tableBody">
+      <thead>
+        <tr>
+          <th>Integrante:</th>
+          <th>Tarea:</th>
+          <th>Mes:</th>
+          <th>borrar </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script src="agendamensual.js"></script><br/>
+    <div class="botones"><button onclick="descargarExcel()">Guardar en un excel</button></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
+    <title>Agenda Semanal</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="../estilo2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <h2>Agenda Semanal</h2><br/>
+    <br/>
+    <form action="https://proyecto-inzpirate.vercel.app/agregar-semana" method="POST">
+        <div>
+          <label for="persona" >Integrante:</label>
+          <select id="persona" name="persona">
+            <option value="Connie Cardenas">Connie Cárdenas</option>
+            <option value="Nancy Salazar">Nancy Salazar</option>
+            <option value="Graciela Mamani">Graciela Mamani</option>
+            <option value="Jaqueline Frugonne">Jaqueline Frugonne</option>
+            <option value="Macarena Monrroy">Macarena Monrroy</option>
+            <option value="Andres Galleguillos">Andrés Galleguillos</option>
+            <option value="Hector Contreras">Héctor Contreras</option>
+            <option value="Alberto Ramos">Alberto Ramos</option>
+            <option value="Florangel Vargas">Florangel Vargas</option>
+          </select>      
+          <br/>
+          <label for="tarea" >Tarea:</label>
+          <input type="text" value="" id="tarea" name="tarea" placeholder="Nombre de tarea">
+        </div>
+      <div ><br/>
+          <label for="fechainicio">Fecha Inicio:</label>
+          <input type="date" id="fechainicio" name="fechainicio">
+          <br/>
+          <label for="fechafinal">Fecha Termino:</label>
+          <input type="date" id="fechafinal" name="fechafinal">
+        </div>
+        <div><br>
+         <button type="submit" id="tareasemanal" class="tareaSemanal">Agregar tarea</button></div>
+      </div>
+    </form>
+    <table id="tableBody">
+      <thead>
+        <tr>
+          <th>Integrante:</th>
+          <th>Tarea:</th>
+          <th>Fecha Inicio:</th>
+          <th>Fecha Termino:</th>
+        </tr>
+      </thead>
+      <tbody >
+      </tbody>
+    </table>
+    <script src="agendasemanal.js"></script><br/>
+    <div class="botones"><button onclick="descargarExcel()">Guardar en un excel</button></div>
+</body>
+</html>
