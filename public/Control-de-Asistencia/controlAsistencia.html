@@ -12,87 +12,44 @@
     <title>Control de Asistencia</title>
 
 </head>
-<body>
-  <h2>Control de Asistencia</h2><br/>
+<body><br/>
+  <h2>Control de Asistencia</h2><br>
   <div class="parrafo">Se marcan las horas de entrada y salida
     tanto en la mañana como en la tarde.
     En total realizar 4 marcajes al día.</div><br/>
-    <br/>
-  <form>
-    <label for="persona">Nombre:</label>
-    <select id="persona">
-      <option value="conniecardenas">Connie Cárdenas</option>
-      <option value="nancysalazar">Nancy Salazar</option>
-      <option value="gracielamamani">Graciela Mamani</option>
-      <option value="jaquelinefrugonne">Jaqueline Frugonne</option>
-      <option value="macarenamonrroy">Macarena Monrroy</option>
-      <option value="andresgalleguillos">Andrés Galleguillos</option>
-      <option value="hectorcontreras">Héctor Contreras</option>
-      <option value="albertoramos">Alberto Ramos</option>
-      <option value="florangelvargas">Florangel Vargas</option>
-    </select>
-    <br><!-- asistencia nombre persona, hora de ingreso y salida en la mañana y en la tarde
-    fecha dia mes año 
-    la idea es que sea facil solo seleccionar o agregar el nombre y apretar un boton   
-     la hora la toma del sistema    
--->
+    
+    <form  method="POST" action="">         
+      <h4>Mañana:</h4>
+      <div class="form-group">
+        <label for="hora_entrada_manana" class="form-label">Ingreso:</label>
+        <button type="submit" id="hora_entrada_manana" value="" class="btn btn-primary botonagregarHoras">Marcar</button>
+        <input type="hidden" name="fecha" id="fecha-input">
+        <span id="horaentradamanana"></span><!--1:28 AM -->
+      </div>
+      <div class="form-group">
+        <label for="hora_salida_manana" class="form-label">Salida:</label>
+        <button type="submit" id="hora_salida_manana" value="" class="btn btn-primary botonagregarHoras">Marcar</button>
+        <span id="horasalidamanana"></span>
+      </div>
+      <hr>
+      <h4>Tarde:</h4>
+      <div class="form-group">
+        <label for="hora_entrada_tarde" class="form-label">Ingreso:</label>
+        <button type="submit" id="hora_entrada_tarde" value="" class="btn btn-primary botonagregarHoras">Marcar</button>
+        <span id="horaentradatarde"></span>
+      </div>
+      <div class="form-group">
+        <label for="hora_salida_tarde" class="form-label">Salida:</label>
+        <button type="submit" id="hora_salida_tarde" value="" class="btn btn-primary botonagregarHoras">Marcar</button>
+        <span id="horasalidatarde"></span>
+      </div>
+    </form><br/>    
+    <div>Fecha: <span id="fechahoy"></span></div> <!-- js llena fechahoy-->
+    <!-- js todas las horas entrada y salida si se apreta el boton-->
 <br/>
-    <!--<input type="text" id="task">-->
-    <h4>Mañana:</h4>
-    <label for="horaEntradaMa" class="horas">Ingreso:</label>
-    <button type="submit" id="horaEntradaMa" value="" class="botonagregarHoras">Marcar</button>
-    <span id="horaentradamanana">1:28 AM</span><!--1:28:14 AM -->
-    <br/><br/>
-    <label for="horaSalidaMa" class="horas">Salida:</label>
-    <button type="submit" id="horaSalidaMa" value="" class="botonagregarHoras">Marcar</button>
-    <span id="horasalidamanana"></span>
-    <br/><br/><hr><br/>
-    <h4>Tarde:</h4>
-    <label for="horaEntradaMa" class="horas">Ingreso:</label>
-    <button type="submit" id="horaEntradaTa" value="" class="botonagregarHoras" >Marcar</button>
-    <span id="horaentradatarde"></span>
-    <br/><br/>
-    <label for="horaEntradaMa" class="horas">Salida:</label>
-    <button type="submit" id="horaSalidaTa" value="" class="botonagregarHoras" >Marcar</button>
-    <span id="horasalidatarde"></span>
-  </form>
-<!--
-<table id="tablaMarcaje1">
-  <thead>
-    <tr>
-      <th>Mañana</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody >
-     <tr>
-			<td>Hora Ingreso:</td>
-			<td></td>
-		</tr>
-  <tr>
-			<td>Hora Salida:</td>
-			<td></td>
-		</tr>
-  
-  </tbody>
-</table>
-
-<table id="tablaMarcaje2">
-  <thead>
-    <tr>
-      <th>Tarde</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody >
-  </tbody>
-  </table>
-  <p>Fecha:</p>
-<br/>-->
-<br/>
-<script src="controlasistencia.js"></script><br/>
+<script src="controlasistencia.js"></script>
   <div class="botones">
-    <button onclick="">Guardar en excel</button>
+    <button onclick="guardarEnExcel()">Guardar en excel</button>
   </div>
 </body>
 </html>

@@ -1,86 +1,85 @@
-// Obtener elementos HTML
-const personaEl = document.getElementById('persona');
-const horaIngresoMananaEl = document.getElementById('horaIngresoManana');
-const horaSalidaMananaEl = document.getElementById('horaSalidaManana');
-const horaIngresoTardeEl = document.getElementById('horaIngresoTarde');
-const horaSalidaTardeEl = document.getElementById('horaSalidaTarde');
-const fechaEl = document.getElementById('fecha');
-const nombreEl = document.getElementById('nombre');
-const agregarAsistenciaBtn = document.getElementById('agregarAsistencia');
-const guardarEnPdfBtn = document.getElementById('guardarEnPdf');
-const verRegistrosBtn = document.getElementById('verRegistros');
+// Obtener la fecha actual en UTC
+var fechaUTC = new Date();
+// Ajustar la fecha a la zona horaria de Chile (UTC-3)
+fechaUTC.setHours(fechaUTC.getHours() - 3);
+// Obtener la fecha en formato de cadena de texto
+var fechaChile = fechaUTC.toLocaleDateString();
+// Mostrar la fecha en el elemento span
+document.getElementById("fechahoy").innerHTML = fechaChile;
+// Establecer el valor de la fecha en el input hidden del formulario
+document.getElementById("fecha-input").value = fechaChile;
 
-// Función para obtener la hora actual
-function obtenerHoraActual() {
-  const fechaActual = new Date();
-  const hora = fechaActual.getHours();
-  const minutos = fechaActual.getMinutes();
-  const segundos = fechaActual.getSeconds();
+//console.log(fechaChile);
+//console.log("fecha-input"+fecha-input);
 
-  const horaTexto = `${hora < 10 ? '0' : ''}${hora}`;
-  const minutosTexto = `${minutos < 10 ? '0' : ''}${minutos}`;
-  const segundosTexto = `${segundos < 10 ? '0' : ''}${segundos}`;
 
-  const fechaTexto = `${horaTexto}:${minutosTexto}:${segundosTexto}`;
 
-  return fechaTexto;
+$(document).ready(function() {
+  // Carga los datos por primera vez cuando la página se carga
+  $.get('/asistencia', function(asistencia) {
+    actualizarTabla(asistencia);
+  });
+});
+
+// Función para actualizar la tabla de actividades
+function actualizarAsistencia(asistencia) {
+  $('#horaentradamanana span').empty();
+  asistencia.forEach(function(asis) {
+    let hora1 = asis.hora_entrada_manana;
+   
+    $('#horaentradamanana span').append(hora1)     
+    });
+}
+  
+// Función para agregar una hora entrada de la mañana
+function agregarHora1() {
+  let hora_entrada_manana= $('#hora_entrada_manana').val();
+
+
+  $.post('/agregar-hora', { persona: persona, hora_entrada_manana:hora_entrada_manana}, function() {
+      // Actualiza el span de la hora después de apretar el boton
+      $.get('/asistencia', function(asistencia) {
+        actualizarHora(asistencia);
+      });
+    });
+  }
+
+
+// Función para guardar los datos de asistencia en un archivo excel
+function guardarEnExcel(){
+  // Obtiene los datos de los spans
+ alert("funcionalidad aun no implementada");
+  var data = [];
+  
+  
+
+  // Crea un libro de Excel y agrega una hoja con los datos de la tabla
+  var workbook = XLSX.utils.book_new();
+  var worksheet = XLSX.utils.aoa_to_sheet(data);
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'asistencia');
+
+  // Descarga el archivo Excel
+  XLSX.writeFile(workbook, 'asistencia.xlsx');
 }
 
-// Función para mostrar los datos de asistencia en la página
-function mostrarAsistencia(asistencia) {
-  horaIngresoMananaEl.textContent = asistencia.horaIngresoManana || '-';
-  horaSalidaMananaEl.textContent =asistencia.horaSalidaManana || '-';
-  horaIngresoTardeEl.textContent = asistencia.horaIngresoTarde || '-';
-  horaSalidaTardeEl.textContent = asistencia.horaSalidaTarde || '-';
-  fechaEl.textContent = asistencia.fecha;
-  nombreEl.textContent = asistencia.nombre;
+/*
+function reloadPage() {
+  location.reload();
 }
 
-// Función para marcar la asistencia
-function marcarAsistencia() {
-  const nombre = personaEl.value;
-  const fechaActual = new Date();
-  const horaActual = obtenerHoraActual();
-  const fechaTexto = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()}`;
+$(document).ready(function() {
+  $("#hora_entrada_manana").click(function() {
+    reloadPage();
+  });
 
-  const asistencia = {
-    nombre,
-    fecha: fechaTexto,
-    horaIngresoManana: horaIngresoMananaEl.textContent === '-' ? horaActual : horaIngresoMananaEl.textContent,
-    horaSalidaManana: horaSalidaMananaEl.textContent === '-' ? null : horaActual,
-    horaIngresoTarde: horaIngresoTardeEl.textContent === '-' ? null : horaActual,
-    horaSalidaTarde: horaSalidaTardeEl.textContent === '-' ? null : horaActual
-  };
 
-  // Guardar asistencia en localStorage
-  const asistencias = JSON.parse(localStorage.getItem('asistencias') || '{}');
-  asistencias[nombre] = asistencia;
-  localStorage.setItem('asistencias', JSON.stringify(asistencias));
+});
 
-  // Mostrar asistencia en la página
-  mostrarAsistencia(asistencia);
-}
-
-// Función para guardar los datos de asistencia en un archivo PDF
-function guardarEnPdf() {
-  // Implementar código para guardar en PDF
-  alert('Funcionalidad no implementada');
-}
-
-// Función para ver los registros de asistencia
-function verRegistros() {
-  // Implementar código para ver registros
-  alert('Funcionalidad no implementada');
-}
-
-// Obtener datos de asistencia del localStorage si existen
-const asistencias = JSON.parse(localStorage.getItem('asistencias') || '{}');
-const nombre = Object.keys(asistencias)[0];
-if (nombre) {
-  mostrarAsistencia(asistencias[nombre]);
-}
-
-// Agregar eventos de click a los botones
-agregarAsistenciaBtn.addEventListener('click', marcarAsistencia);
-guardarEnPdfBtn.addEventListener('click', guardarEnPdf);
-verRegistrosBtn.addEventListener('click', verRegistros);
+$('form').submit(function(event) {
+  // Evita que el formulario se envíe de forma predeterminada
+  event.preventDefault();
+  // Envía el formulario al servidor
+  agregarHora1();
+  // Recarga la página
+  reloadPage();
+});*/

@@ -136,3 +136,37 @@ app.get('/agendames', async function(req, res) {
     res.status(500).send('Error al obtener datos');
   }
 });
+
+
+  // Agrega una nueva hora entrada en la mañana la base de datos
+  async function insertarDatos4(nombre, hora_entrada_manana, fecha, res) {
+    try {
+      const result = await sql.query(`INSERT INTO asistencia (persona, tarea, mes) VALUES (?, ?, ?)`, [persona, tarea, mes]);
+      console.log(result);
+      //res.send('Datos recibidos');
+    } catch (error) {
+      console.error('Error al insertar datos:', error);
+      //res.status(500).send('Error al insertar datos');
+    }
+  }
+
+  app.post('/agregar-hora', function(req, res) {
+    var persona = req.body.persona;
+    var tarea = req.body.tarea;
+    var mes = req.body.mes;
+    insertarDatos3(persona, tarea, mes, res);
+   // res.send({
+   //   success: 'Actividad agregada!'
+   // });
+  });
+
+  
+app.get('/agendames', async function(req, res) {
+  try {
+    const [rows] = await sql.query(`SELECT * FROM agendames`);
+    res.json(rows);
+  } catch (error) {
+    console.error('Error al obtener datos:', error);
+    res.status(500).send('Error al obtener datos');
+  }
+});

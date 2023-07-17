@@ -164,16 +164,60 @@ p {
   background-color: #00BFFF;
   color: white;
   border: 1px solid black;
-  padding: 5px 10px;
+  padding: 3px 3px;
   border-radius: 5px;
   cursor: pointer;
-  display: inline-block; 
+  display:inline-table ; 
   vertical-align: middle;
-  margin-right: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-.horas{
-  display: inline-block; 
-  width:66px; 
+
+.contenedor-nombre {
+  display: inline-block;
+}
+
+.nombre{
+  display: inline-block;
   vertical-align: middle;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container a {
+  width: 55%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: #fff;
+  border-radius:50px;
+  border: 0px solid black;
+  padding: 5px 2px 5px 15px;
+  margin: auto;
+  cursor: pointer;
+  background-color: #87CEEB;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  width: 60px;
+}
+
+.botonagregarHoras {
+  width: 50px;
 }
