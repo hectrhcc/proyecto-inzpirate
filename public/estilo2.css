@@ -165,7 +165,7 @@ p {
   color: white;
   border: 1px solid black;
   padding: 3px 3px;
-  border-radius: 5px;
+  border-radius:5px;
   cursor: pointer;
   display:inline-table ; 
   vertical-align: middle;
@@ -220,4 +220,14 @@ p {
 
 .botonagregarHoras {
   width: 50px;
+}
+
+button:disabled {
+  background-color: #222;
+  color: #fff;
+}
+
+.relojito{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
