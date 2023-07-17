@@ -169,11 +169,11 @@ p {
   cursor: pointer;
   display: inline-block; 
   vertical-align: middle;
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 .horas{
   display: inline-block; 
-  width:64px; 
+  width:66px; 
   vertical-align: middle;
 }
