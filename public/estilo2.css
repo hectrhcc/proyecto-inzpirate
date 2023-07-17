@@ -159,8 +159,7 @@ p {
 
 
 .botonagregarHoras{
-  width: 30%;
-  margin-top: 0px;
+  width: 28%;
   text-align: center;
   background-color: #00BFFF;
   color: white;
@@ -170,10 +169,11 @@ p {
   cursor: pointer;
   display: inline-block; 
   vertical-align: middle;
+  margin-right: 5px;
 }
 
 .horas{
   display: inline-block; 
-  width: 100px; 
+  width: 61px; 
   vertical-align: middle;
 }
