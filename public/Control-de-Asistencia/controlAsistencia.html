@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../logo.jpg"/ rel="shortcut icon" type="image/png"/>
     <link rel="stylesheet" href="../estilo2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <title>Control de Asistencia</title>
 
 </head>
@@ -36,17 +40,17 @@
     <!--<input type="text" id="task">-->
     <h4>Mañana:</h4>
     <label for="horaEntradaMa" class="horas">Hora Ingreso:</label>
-    <button type="submit" id="horaEntradaMa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <button type="submit" id="horaEntradaMa" value="" class="botonagregarHoras">Marcar</button>
     <br/><br/>
     <label for="horaSalidaMa" class="horas">Hora Salida:</label>
-    <button type="submit" id="horaSalidaMa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <button type="submit" id="horaSalidaMa" value="" class="botonagregarHoras">Marcar</button>
     <br/><br/><hr><br/>
     <h4>Tarde:</h4>
     <label for="horaEntradaMa" class="horas">Hora Ingreso:</label>
-    <button type="submit" id="horaEntradaTa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <button type="submit" id="horaEntradaTa" value="" class="botonagregarHoras" >Marcar</button>
     <br/><br/>
     <label for="horaEntradaMa" class="horas">Hora Salida:</label>
-    <button type="submit" id="horaSalidaTa" value="" class="botonagregarHoras" style="">Marcar</button>
+    <button type="submit" id="horaSalidaTa" value="" class="botonagregarHoras" >Marcar</button>
   </form>
 <!--
 <table id="tablaMarcaje1">
@@ -82,8 +86,9 @@
   <p>Fecha:</p>
 <br/>-->
 <br/>
+<script src="controlasistencia.js"></script><br/>
   <div class="botones">
-    <button onclick="">Guardar en pdf</button>
+    <button onclick="">Guardar en excel</button>
   </div>
 </body>
 </html>
