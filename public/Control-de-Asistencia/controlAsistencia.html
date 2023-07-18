@@ -8,8 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <title>Control de Asistencia</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>    
+<title>Control de Asistencia</title>
 
 </head>
 <body onload="Fecha()"><br/>
@@ -18,15 +18,32 @@
     tanto en la mañana como en la tarde.
     En total realizar 4 marcajes al día.
     <br><span id="fechahoy" class="relojito"></span>
-    <span id="hora" class="relojito"></span></div><br/>
-<form method="POST" action="">         
+    <span id="horahora" class="relojito"></span></div><br/>
+<form method="POST" action="http://127.0.0.1:3000/agregar-hora">   
+  <div class="contenedor-nombre">
+    <span class="nombre">Nombre:</span>
+    <select id="select-nombre" class="nombre" required>
+      <option value="" selected>Seleccione su nombre</option>
+      <option value="Connie Cardenas">Connie Cárdenas</option>
+      <option value="Nancy Salazar">Nancy Salazar</option>
+      <option value="Graciela Mamani">Graciela Mamani</option>
+      <option value="Jaqueline Frugonne">Jaqueline Frugonne</option>
+      <option value="Macarena Monrroy">Macarena Monrroy</option>
+      <option value="Andres Galleguillos">Andrés Galleguillos</option>
+      <option value="Hector Contreras">Héctor Contreras</option>
+      <option value="Alberto Ramos">Alberto Ramos</option>
+      <option value="Florangel Vargas">Florangel Vargas</option>
+    </select>
+</div>      
       <h4>Mañana:</h4>
       <div class="form-group">
         <label for="btn_hora_entrada_manana" class="form-label">Ingreso:</label>
-        <button type="submit" id="btn_hora_entrada_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horaentradamanana', 'btn_hora_entrada_manana')">Marcar</button>
-        <input type="hidden" name="fecha" id="fecha-input">
-        <span id="horaentradamanana"></span><!--1:28 AM -->
-      </div>
+        <input type="hidden" name="fecha" id="fecha" value=""><!-- deberia tener el value de la fecha-->
+        <input type="hidden" name="hora" id="hora" value=""><!--deberia tener el value de la hora-->
+        <button type="submit" id="btn_hora_entrada_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horaentradamanana', 'btn_hora_entrada_manana','fecha')">Marcar</button>
+        <span id="horaentradamanana"></span>
+        <span id="fecha"></span>
+         </div>
       <div class="form-group">
         <label for="btn_hora_salida_manana" class="form-label">Salida:</label>
         <button type="submit" id="btn_hora_salida_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horasalidamanana', 'btn_hora_salida_manana')">Marcar</button>
@@ -46,8 +63,6 @@
       </div>
     </form>
     <br/>    
-     <!-- js llena fechahoy-->
-    <!-- js todas las horas entrada y salida si se apreta el boton-->
 <br/>
 <script src="controlasistencia.js"></script>
   <div class="botones">

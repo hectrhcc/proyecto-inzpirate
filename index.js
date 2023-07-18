@@ -141,7 +141,7 @@ app.get('/agendames', async function(req, res) {
   // Agrega una nueva hora entrada en la mañana la base de datos
   async function insertarDatos4(nombre, hora_entrada_manana, fecha, res) {
     try {
-      const result = await sql.query(`INSERT INTO asistencia (persona, tarea, mes) VALUES (?, ?, ?)`, [persona, tarea, mes]);
+      const result = await sql.query(`INSERT INTO asistencia (nombre, hora_entrada_manana, fecha) VALUES (?, ?, ?)`, [nombre, hora_entrada_manana,fecha]);
       console.log(result);
       //res.send('Datos recibidos');
     } catch (error) {
@@ -151,19 +151,22 @@ app.get('/agendames', async function(req, res) {
   }
 
   app.post('/agregar-hora', function(req, res) {
-    var persona = req.body.persona;
-    var tarea = req.body.tarea;
-    var mes = req.body.mes;
-    insertarDatos3(persona, tarea, mes, res);
+    var nombre = req.body.nombre; //no es el id
+    var hora_entrada_manana = req.body.hora_entrada_manana;
+    var fecha = req.body.fecha;//no tiene que ser body.fecha?
+    console.log("nombre:"+nombre);//ok
+    console.log("hora:"+hora_entrada_manana); //ok  
+    console.log("fecha:"+fecha);//ok  
+    insertarDatos4(nombre,hora_entrada_manana, fecha, res);
    // res.send({
    //   success: 'Actividad agregada!'
    // });
   });
 
   
-app.get('/agendames', async function(req, res) {
+app.get('/asistencia', async function(req, res) {
   try {
-    const [rows] = await sql.query(`SELECT * FROM agendames`);
+    const [rows] = await sql.query(`SELECT * FROM asistencia`);
     res.json(rows);
   } catch (error) {
     console.error('Error al obtener datos:', error);
