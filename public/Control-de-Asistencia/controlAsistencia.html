@@ -19,8 +19,8 @@
     En total realizar 4 marcajes al día.
     <br><span id="fechahoy" class="relojito"></span>
     <span id="horahora" class="relojito"></span></div><br/>
-<form method="POST" action="http://127.0.0.1:3000/agregar-hora">   
-  <div class="contenedor-nombre">
+    <div class="contenedor-formulario">
+    <form method="POST" action="http://127.0.0.1:3000/agregar-hora" class="centrar">      
     <span class="nombre">Nombre:</span>
     <select id="select-nombre" class="nombre" required>
       <option value="" selected>Seleccione su nombre</option>
@@ -35,30 +35,39 @@
       <option value="Florangel Vargas">Florangel Vargas</option>
     </select>
 </div>      
+<div class="contenedor-formulario">
       <h4>Mañana:</h4>
-      <div class="form-group">
-        <label for="btn_hora_entrada_manana" class="form-label">Ingreso:</label>
+        <label for="btn_hora_entrada_manana" class="">Ingreso:</label>
         <input type="hidden" name="fecha" id="fecha" value=""><!-- deberia tener el value de la fecha-->
         <input type="hidden" name="hora" id="hora" value=""><!--deberia tener el value de la hora-->
-        <button type="submit" id="btn_hora_entrada_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horaentradamanana', 'btn_hora_entrada_manana','fecha')">Marcar</button>
+        <button type="submit" id="btn_hora_entrada_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora1(event, 'horaentradamanana', 'btn_hora_entrada_manana','fecha')">Marcar</button>
         <span id="horaentradamanana"></span>
         <span id="fecha"></span>
          </div>
-      <div class="form-group">
-        <label for="btn_hora_salida_manana" class="form-label">Salida:</label>
-        <button type="submit" id="btn_hora_salida_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horasalidamanana', 'btn_hora_salida_manana')">Marcar</button>
+         </form>
+         <form method="POST" action="http://127.0.0.1:3000/agregar-hora2">
+          <div class="contenedor-formulario">
+        <label for="btn_hora_salida_manana" class="">Salida&nbsp;:&nbsp;</label>
+        <button type="submit" id="btn_hora_salida_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora2(event, 'horasalidamanana', 'btn_hora_salida_manana','fecha')">Marcar</button>
+        <input type="hidden" name="hora2" id="hora2" value="">
         <span id="horasalidamanana"></span>
       </div>
+    </form>
       <hr>
+      <div class="contenedor-formulario">
       <h4>Tarde:</h4>
-      <div class="form-group">
-        <label for="btn_hora_entrada_tarde" class="form-label">Ingreso:</label>
-        <button type="submit" id="btn_hora_entrada_tarde" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horaentradatarde', 'btn_hora_entrada_tarde')">Marcar</button>
+      <form method="POST" action="http://127.0.0.1:3000/agregar-hora3" class="centrar">
+        <label for="btn_hora_entrada_tarde" class="">Ingreso:</label>
+        <input type="hidden" name="hora3" id="hora3" value="">
+        <button type="submit" id="btn_hora_entrada_tarde" class="btn btn-primary botonagregarHoras" onclick="marcarHora3(event, 'horaentradatarde', 'btn_hora_entrada_tarde','fecha')">Marcar</button>
         <span id="horaentradatarde"></span>
       </div>
-      <div class="form-group">
-        <label for="btn_hora_salida_tarde" class="form-label">Salida:</label>
-        <button type="submit" id="btn_hora_salida_tarde" class="btn btn-primary botonagregarHoras" onclick="marcarHora(event, 'horasalidatarde', 'btn_hora_salida_tarde')">Marcar</button>
+    </form>
+    <div class="contenedor-formulario">
+      <form method="POST" action="http://127.0.0.1:3000/agregar-hora4">
+        <label for="btn_hora_salida_tarde" class="">Salida&nbsp;:&nbsp;</label>
+        <input type="hidden" name="hora4" id="hora4" value="">
+        <button type="submit" id="btn_hora_salida_tarde" class="btn btn-primary botonagregarHoras" onclick="marcarHora4(event, 'horasalidatarde', 'btn_hora_salida_tarde','fecha')">Marcar</button>
         <span id="horasalidatarde"></span>
       </div>
     </form>

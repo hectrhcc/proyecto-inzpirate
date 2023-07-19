@@ -149,27 +149,96 @@ app.get('/agendames', async function(req, res) {
       //res.status(500).send('Error al insertar datos');
     }
   }
-
+//o hago 4 formularios o aqui hago las bifurcaciones
   app.post('/agregar-hora', function(req, res) {
-    var nombre = req.body.nombre; //no es el id
-    var hora_entrada_manana = req.body.hora_entrada_manana;
-    var fecha = req.body.fecha;//no tiene que ser body.fecha?
-    console.log("nombre:"+nombre);//ok
-    console.log("hora:"+hora_entrada_manana); //ok  
-    console.log("fecha:"+fecha);//ok  
+    let nombre = req.body.nombre; //no es el id
+    let hora_entrada_manana = req.body.hora_entrada_manana;
+    let fecha = req.body.fecha;
     insertarDatos4(nombre,hora_entrada_manana, fecha, res);
-   // res.send({
+  
+    // res.send({
    //   success: 'Actividad agregada!'
    // });
   });
 
-  
-app.get('/asistencia', async function(req, res) {
-  try {
-    const [rows] = await sql.query(`SELECT * FROM asistencia`);
-    res.json(rows);
-  } catch (error) {
-    console.error('Error al obtener datos:', error);
-    res.status(500).send('Error al obtener datos');
+  // Agrega una nueva hora salida en la mañana la base de datos
+  async function actualizarDatos(nombre, hora_salida_manana, fecha, res) {
+    try {
+      const result = await sql.query(`UPDATE asistencia SET hora_salida_manana = ? WHERE nombre = ? and fecha =?`, [hora_salida_manana,nombre,fecha]);
+      console.log(result);
+      //res.send('Datos recibidos');
+    } catch (error) {
+      console.error('Error al insertar datos:', error);
+      //res.status(500).send('Error al insertar datos');
+    }
   }
-});
+
+    // Agrega una nueva hora entrada en la tarde la base de datos
+    async function actualizarDatos2(nombre, hora_entrada_tarde, fecha, res) {
+      try {
+        const result = await sql.query(`UPDATE asistencia SET hora_entrada_tarde = ? WHERE nombre = ? and fecha =?`, [hora_entrada_tarde,nombre,fecha]);
+        console.log(result);
+        //res.send('Datos recibidos');
+      } catch (error) {
+        console.error('Error al insertar datos:', error);
+        //res.status(500).send('Error al insertar datos');
+      }
+    }
+
+      // Agrega una nueva hora salida en la tarde la base de datos
+  async function actualizarDatos3(nombre, hora_salida_tarde, fecha, res) {
+    try {
+      const result = await sql.query(`UPDATE asistencia SET hora_salida_tarde = ? WHERE nombre = ? and fecha =?`, [hora_salida_tarde,nombre,fecha]);
+      console.log(result);
+      //res.send('Datos recibidos');
+    } catch (error) {
+      console.error('Error al insertar datos:', error);
+      //res.status(500).send('Error al insertar datos');
+    }
+  }
+
+
+  app.post('/agregar-hora2', function(req, res) {
+    let nombre = req.body.nombre; //no es el id
+    let hora_salida_manana = req.body.hora_salida_manana;
+    let fecha = req.body.fecha;
+    actualizarDatos(nombre,hora_salida_manana, fecha, res);
+  
+    // res.send({
+   //   success: 'Actividad agregada!'
+   // });
+  });
+
+  app.post('/agregar-hora3', function(req, res) {
+    let nombre = req.body.nombre; //no es el id
+    let hora_entrada_tarde = req.body.hora_entrada_tarde;
+    let fecha = req.body.fecha;
+    actualizarDatos2(nombre,hora_entrada_tarde, fecha, res);
+  
+    // res.send({
+   //   success: 'Actividad agregada!'
+   // });
+  });
+
+
+  app.post('/agregar-hora4', function(req, res) {
+    let nombre = req.body.nombre; //no es el id
+    let hora_salida_tarde = req.body.hora_salida_tarde;
+    let fecha = req.body.fecha;
+    actualizarDatos3(nombre,hora_salida_tarde, fecha, res);
+  
+    // res.send({
+   //   success: 'Actividad agregada!'
+   // });
+  });
+
+  app.get('/asistencia', async function(req, res) {
+    try {
+      const [rows] = await sql.query(`SELECT * FROM asistencia`);
+      res.json(rows);
+    } catch (error) {
+      console.error('Error al obtener datos:', error);
+      res.status(500).send('Error al obtener datos');
+    }
+  });
+  

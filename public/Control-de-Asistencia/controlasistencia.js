@@ -71,7 +71,7 @@ $(document).ready(function() {
 */
 //Aqui ya esta para ingresar los datos a la base de datos
 
-function marcarHora(event, spanId, btnId,fecha) {
+function marcarHora1(event, spanId, btnId,fecha) {
   // Evitar que el formulario se envíe automáticamente
   event.preventDefault();
   // Obtener la zona horaria de Chile
@@ -87,15 +87,85 @@ function marcarHora(event, spanId, btnId,fecha) {
     alert("Selecciona un nombre por favor 🙀 "); 
     console.log("estoy aqui:"+selectNombre.value);
   }
-  else{
     // Desactivar el botón correspondiente
-  document.getElementById(btnId).disabled = true;
-  agregarHora1();
-}
+  else{
+    document.getElementById(btnId).disabled = true;
+    agregarHora1();
+  }  
 }
 
 
-// Función para agregar una nueva hora
+function marcarHora2(event, spanId, btnId,fecha) {
+  // Evitar que el formulario se envíe automáticamente
+  event.preventDefault();
+  // Obtener la zona horaria de Chile
+  var timeZone = 'America/Santiago';
+  // Crear un objeto Date con la hora actual en la zona horaria de Chile
+  var fechaHora = new Date().toLocaleTimeString('es-CL', { timeZone: timeZone });
+  // Actualizar el contenido del span correspondiente con la hora actual
+  document.getElementById(spanId).textContent = fechaHora; //es la hora
+  document.getElementById('fecha').value = fechax;
+  document.getElementById("hora2").value = fechaHora; //seteo la hora pa la bbdd 
+  
+  if(!selectNombre.value){
+    alert("Selecciona un nombre por favor 🙀 "); 
+    console.log("estoy aqui:"+selectNombre.value);
+  }
+    // Desactivar el botón correspondiente
+  else{
+    document.getElementById(btnId).disabled = true;
+    agregarHora2();
+  }  
+}
+
+function marcarHora3(event, spanId, btnId,fecha) {
+  // Evitar que el formulario se envíe automáticamente
+  event.preventDefault();
+  // Obtener la zona horaria de Chile
+  var timeZone = 'America/Santiago';
+  // Crear un objeto Date con la hora actual en la zona horaria de Chile
+  var fechaHora = new Date().toLocaleTimeString('es-CL', { timeZone: timeZone });
+  // Actualizar el contenido del span correspondiente con la hora actual
+  document.getElementById(spanId).textContent = fechaHora; //es la hora
+  document.getElementById('fecha').value = fechax;
+  document.getElementById("hora3").value = fechaHora;  
+  
+  if(!selectNombre.value){
+    alert("Selecciona un nombre por favor 🙀 "); 
+    console.log("estoy aqui:"+selectNombre.value);
+  }
+    // Desactivar el botón correspondiente
+  else{
+    document.getElementById(btnId).disabled = true;
+    agregarHora3();
+  }  
+}
+
+function marcarHora4(event, spanId, btnId,fecha) {
+  // Evitar que el formulario se envíe automáticamente
+  event.preventDefault();
+  // Obtener la zona horaria de Chile
+  var timeZone = 'America/Santiago';
+  // Crear un objeto Date con la hora actual en la zona horaria de Chile
+  var fechaHora = new Date().toLocaleTimeString('es-CL', { timeZone: timeZone });
+  // Actualizar el contenido del span correspondiente con la hora actual
+  document.getElementById(spanId).textContent = fechaHora; //es la hora
+  document.getElementById('fecha').value = fechax;
+  document.getElementById("hora4").value = fechaHora;  
+  
+  if(!selectNombre.value){
+    alert("Selecciona un nombre por favor 🙀 "); 
+    console.log("estoy aqui:"+selectNombre.value);
+  }
+    // Desactivar el botón correspondiente
+  else{
+    document.getElementById(btnId).disabled = true;
+    agregarHora4();
+  }  
+}
+
+
+// Función para agregar una nueva hora entrada mañana
 function agregarHora1() {
   let nombre = $('#select-nombre').val();
   let hora_entrada_manana = $('#hora').val();
@@ -108,6 +178,45 @@ function agregarHora1() {
   });
   }
 
+
+// Función para agregar una nueva hora salida mañana
+function agregarHora2() {
+  let nombre = $('#select-nombre').val();
+  let hora_salida_manana = $('#hora2').val();
+  let fecha = $('#fecha').val();
+  console.log("nombre:"+nombre);//ok
+  console.log("hora salida mañana:"+hora_salida_manana); //ok  
+  console.log("fecha:"+fecha);//ok    
+  $.post('/agregar-hora2', { nombre: nombre, hora_salida_manana:hora_salida_manana, fecha:fecha}, function() {
+    
+  });
+  }
+
+// Función para agregar una nueva hora entrada tarde
+function agregarHora3() {
+  let nombre = $('#select-nombre').val();
+  let hora_entrada_tarde = $('#hora3').val();
+  let fecha = $('#fecha').val();
+  console.log("nombre:"+nombre);//ok
+  console.log("hora entrada tarde:"+hora_entrada_tarde); //ok  
+  console.log("fecha:"+fecha);//ok    
+  $.post('/agregar-hora3', { nombre: nombre, hora_entrada_tarde:hora_entrada_tarde, fecha:fecha}, function() {
+    
+  });
+  }
+
+// Función para agregar una nueva hora salida tarde
+function agregarHora4() {
+  let nombre = $('#select-nombre').val();
+  let hora_salida_tarde = $('#hora4').val();
+  let fecha = $('#fecha').val();
+  console.log("nombre:"+nombre);//ok
+  console.log("hora salida tarde:"+hora_salida_tarde); //ok  
+  console.log("fecha:"+fecha);//ok    
+  $.post('/agregar-hora4', { nombre: nombre, hora_salida_tarde:hora_salida_tarde, fecha:fecha}, function() {
+    
+  });
+  }
 
 /*
   // Enviar el formulario mediante una petición AJAX

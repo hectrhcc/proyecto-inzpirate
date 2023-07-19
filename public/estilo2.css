@@ -231,3 +231,16 @@ button:disabled {
   font-family:Arial, Helvetica, sans-serif;
   font-size: 20px;
 }
+
+.centrar {
+  display: inline;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedor-formulario {
+  display:inline;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
