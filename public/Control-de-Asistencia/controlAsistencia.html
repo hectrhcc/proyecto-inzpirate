@@ -20,7 +20,7 @@
     <br><span id="fechahoy" class="relojito"></span>
     <span id="horahora" class="relojito"></span></div><br/>
     <div class="contenedor-formulario">
-    <form method="POST" action="http://127.0.0.1:3000/agregar-hora" class="centrar">      
+    <form method="POST" action="https://proyecto-inzpirate.vercel.app/agregar-hora" class="centrar">      
     <span class="nombre">Nombre:</span>
     <select id="select-nombre" class="nombre" required>
       <option value="" selected>Seleccione su nombre</option>
@@ -45,7 +45,7 @@
         <span id="fecha"></span>
          </div>
          </form>
-         <form method="POST" action="http://127.0.0.1:3000/agregar-hora2">
+         <form method="POST" action="https://proyecto-inzpirate.vercel.app/agregar-hora2">
           <div class="contenedor-formulario">
         <label for="btn_hora_salida_manana" class="">Salida&nbsp;:&nbsp;</label>
         <button type="submit" id="btn_hora_salida_manana" class="btn btn-primary botonagregarHoras" onclick="marcarHora2(event, 'horasalidamanana', 'btn_hora_salida_manana','fecha')">Marcar</button>
@@ -56,7 +56,7 @@
       <hr>
       <div class="contenedor-formulario">
       <h4>Tarde:</h4>
-      <form method="POST" action="http://127.0.0.1:3000/agregar-hora3" class="centrar">
+      <form method="POST" action="https://proyecto-inzpirate.vercel.app/agregar-hora3" class="centrar">
         <label for="btn_hora_entrada_tarde" class="">Ingreso:</label>
         <input type="hidden" name="hora3" id="hora3" value="">
         <button type="submit" id="btn_hora_entrada_tarde" class="btn btn-primary botonagregarHoras" onclick="marcarHora3(event, 'horaentradatarde', 'btn_hora_entrada_tarde','fecha')">Marcar</button>
@@ -64,7 +64,7 @@
       </div>
     </form>
     <div class="contenedor-formulario">
-      <form method="POST" action="http://127.0.0.1:3000/agregar-hora4">
+      <form method="POST" action="https://proyecto-inzpirate.vercel.app/agregar-hora4">
         <label for="btn_hora_salida_tarde" class="">Salida&nbsp;:&nbsp;</label>
         <input type="hidden" name="hora4" id="hora4" value="">
         <button type="submit" id="btn_hora_salida_tarde" class="btn btn-primary botonagregarHoras" onclick="marcarHora4(event, 'horasalidatarde', 'btn_hora_salida_tarde','fecha')">Marcar</button>
