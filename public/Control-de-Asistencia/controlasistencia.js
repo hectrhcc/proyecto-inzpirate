@@ -306,3 +306,31 @@ $('form').submit(function(event) {
   // Recarga la página
   reloadPage();
 });*/
+
+
+function guardarEnExcel() {
+  // Obtener las horas
+  let hora1 = document.getElementById("horaentradamanana").textContent;
+  let hora2 = document.getElementById("horasalidamanana").textContent;
+  let hora3 = document.getElementById("horaentradatarde").textContent;
+  let hora4 = document.getElementById("horasalidatarde").textContent;
+
+  // Crear un objeto JSON con las horas
+  let horas = [
+    { Hora: hora1, Jornada: "Entrada mañana" },
+    { Hora: hora2, Jornada: "Salida mañana" },
+    { Hora: hora3, Jornada: "Entrada tarde" },
+    { Hora: hora4, Jornada: "Salida tarde" }
+  ];
+
+  // Crear un archivo Excel
+  let workbook = XLSX.utils.book_new();
+  let worksheet = XLSX.utils.json_to_sheet(horas);
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Horas");
+
+  // Descargar el archivo
+  let fecha = new Date().toISOString().slice(0, 10);
+  let filename = "horas_" + fecha + ".xlsx";
+  let buffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  saveAs(new Blob([buffer], { type: "application/octet-stream" }), filename);
+}
