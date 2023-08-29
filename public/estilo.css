@@ -123,6 +123,7 @@ h3{
  }
 
  .construyendo{
+  display: inline;
   float: left;
   margin-right:7px;
  }
