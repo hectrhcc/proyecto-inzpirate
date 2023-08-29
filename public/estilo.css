@@ -124,7 +124,7 @@ h3{
 
  .construyendo{
   display: inline;
-  float: left;
+  place-items: left;
   margin-right:7px;
  }
 
