@@ -124,8 +124,14 @@ h3{
 
  .construyendo{
   display: inline;
-  place-items: left;
-  margin-right:7px;
+  float: left;
+  margin-right:8px;
+
+ }
+
+ .organizacion{
+  display: inline;
+  float: right;
  }
 
  #seccion-principal{
