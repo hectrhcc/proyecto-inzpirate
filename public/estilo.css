@@ -54,8 +54,8 @@ h3{
     color: #fff;
     border-radius: 50px;
     border: 0px solid black;
-    padding: 12px 42px;
-    margin: 12px;
+    padding: 12px 27px;
+    margin: 8px;
     cursor: pointer;
     background-color: #87CEEB;
     transition: all 0.3s ease;
@@ -120,4 +120,21 @@ h3{
  
  a{
     text-decoration:none;
+ }
+
+ .construyendo{
+  float: left;
+  margin-right:7px;
+ }
+
+ #seccion-principal{
+  margin:15px ;
+  padding:15px ;
+ }
+
+ .logo{
+margin: 0 auto;
+margin-top: 10px;
+margin-bottom: 16px;
+
  }
