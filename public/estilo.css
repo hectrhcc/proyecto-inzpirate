@@ -150,3 +150,75 @@ margin-top: 3rem;
 margin-bottom: 1.4rem;
 
  }
+
+ /* Desktop */
+@media screen and (min-width: 1600px) {
+  /* Estilos para desktop */
+  #seccion-principal{
+    top:23.5rem;
+}
+.logo{
+  position: relative;
+  top:21rem;
+  
+}
+
+h3{
+  position: relative;
+  top:22rem;
+  font-size: xx-large;
+}
+}
+
+/* Laptop */
+@media screen and (min-width: 1280px) and (max-width: 1599px) {
+  /* Estilos para laptop */
+  #seccion-principal{
+    top:20.5rem;
+}
+.logo{
+  position: relative;
+  top:18rem;
+  
+}
+
+h3{
+  position: relative;
+  top:19rem;
+  font-size: xx-large;
+}
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  /* Estilos para tablet */
+  #seccion-principal{
+    top:7rem;
+}
+.logo{
+  position: relative;
+  top:5rem;
+}
+
+h3{
+  position: relative;
+  top:6rem;
+}
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  /* Estilos para móvil */
+  #seccion-principal{
+    top:-2.7rem;
+}
+.logo{
+  position: relative;
+  top:-1.5rem;
+}
+
+h3{
+  position: relative;
+  top:-1.5rem;
+}
+}
