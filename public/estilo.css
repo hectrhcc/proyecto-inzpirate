@@ -150,25 +150,43 @@ margin-top: 3rem;
 margin-bottom: 1.4rem;
 
  }
-
- /* Desktop */
-@media screen and (min-width: 1600px) {
-  /* Estilos para desktop */
+/* Mobile */
+@media screen and (min-width: 320px) {
+  /* Estilos para móvil */
   #seccion-principal{
-    top:23.5rem;
+    top:-5rem;
 }
 .logo{
   position: relative;
-  top:-2rem;
+  top:-2.6rem;
+}
+
+h3{
+  position: relative;
+  top:-3.6rem;
+  font-size: smaller;
+}
+
+
+}
+
+@media screen and (min-width:1280px)  {
+  #seccion-principal{
+    top:-3.5rem;
+}
+.logo{
+  position: relative;
+  bottom:2rem;
   
 }
 
 h3{
   position: relative;
-  top:22rem;
-  font-size: xx-large;
+  top:-2.5rem;
+  font-size: x-large;
 }
 }
+
 
 @media screen and (min-width:1440px)  {
   #seccion-principal{
@@ -190,42 +208,27 @@ h3{
 }
 }
 
-@media screen and (min-width:1280px)  {
+ /* Desktop */
+@media screen and (min-width: 1600px) {
+  /* Estilos para desktop */
   #seccion-principal{
-    top:-3.5rem;
+    top:23.5rem;
 }
 .logo{
   position: relative;
-  bottom:2rem;
+  top:-2rem;
   
 }
 
 h3{
   position: relative;
-  top:-2.5rem;
-  font-size: x-large;
+  top:22rem;
+  font-size: xx-large;
 }
 }
 
 
 
 
-/* Mobile */
-@media screen and (min-width: 320px) {
-  /* Estilos para móvil */
-  #seccion-principal{
-    top:-5rem;
-}
-.logo{
-  position: relative;
-  top:-2.6rem;
-}
-
-h3{
-  position: relative;
-  top:-3.6rem;
-  font-size: smaller;
-}
 
 
-}
