@@ -204,6 +204,26 @@ h3{
 }
 }
 
+@media screen and (min-width: 1100px) {
+  /* Estilos que se aplicarán cuando la resolución sea de al menos 1440x900 */
+  /* Puedes agregar tus estilos específicos aquí */
+  #seccion-principal{
+    top:0.5rem;
+}
+.logo{
+  position: relative;
+  top:1rem;
+
+}
+
+h3{
+  position: relative;
+  top:1rem;
+  font-size: x-large;
+}
+
+}
+
 
  /* Desktop */
 @media screen and (min-width: 1600px) {
