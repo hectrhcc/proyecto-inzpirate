@@ -177,7 +177,7 @@ h3{
 .logo{
   position: relative;
   bottom:2rem;
-  
+  border:1px solid red;
 }
 
 h3{
@@ -194,7 +194,7 @@ h3{
 @media screen and (max-width: 767px) {
   /* Estilos para móvil */
   #seccion-principal{
-    top:-5rem;
+    top:-5.5rem;
 }
 .logo{
   position: relative;
@@ -204,7 +204,7 @@ h3{
 h3{
   position: relative;
   top:-3.6rem;
-  font-size: medium;
+  font-size: smaller;
 }
 
 
