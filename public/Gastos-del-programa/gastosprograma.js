@@ -1,92 +1,82 @@
-$(document).ready(function() {
-    // Carga los datos por primera vez cuando la página se carga
-    $.get('/gastos', function(gastos) {
-      actualizarTabla(gastos);
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  const tableBody = document.querySelector("#tableBody tbody");
+
+  // Cargar datos del localStorage al cargar la página
+  cargarDatos();
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const item = document.getElementById("item").value;
+    const precio = document.getElementById("precio").value;
+    const fecha = document.getElementById("fecha").value;
+    const descripcion = document.getElementById("descripcion").value;
+
+    if (item && precio && fecha && descripcion) {
+      agregarItem(item, precio, fecha, descripcion);
+      form.reset();
+    } else {
+      alert("Por favor complete todos los campos.");
+    }
   });
 
-// Función para actualizar la tabla de actividades
-function actualizarTabla(gastos) {
-    $('#tableBody tbody').empty();
-    gastos.forEach(function(gasto) {
-      let item = gasto.nombre; // como se llama en la bbdd
-      let precio = gasto.precio;  
-      let fecha = gasto.fecha;
-      const fecha1 = new Date(fecha);
-      // Convertir a zona Chile
-      fecha1.setTime(fecha1.getTime() + fecha1.getTimezoneOffset()*60*1000);
-      // Formatear fecha
-      const fechacl= fecha1.toLocaleDateString("es-CL");
-      let descripcion = gasto.descripcion;  
+  tableBody.addEventListener("click", function (e) {
+    if (e.target.classList.contains("eliminar")) {
+      const row = e.target.parentElement.parentElement;
+      const item = row.firstElementChild.textContent;
+      eliminarItem(item);
+    }
+  });
 
-      $('#tableBody tbody').append('<tr>')      
-      $('#tableBody tbody tr:last').append('<td>'+item+'</td>')     
-      $('#tableBody tbody tr:last').append('<td>'+precio+'</td>')     
-      $('#tableBody tbody tr:last').append('<td>'+fechacl+'</td>')     
-      $('#tableBody tbody tr:last').append('<td>'+descripcion+'</td>')     
-      $('#tableBody tbody tr:last').append('</tr>')  
-    });
+  function agregarItem(item, precio, fecha, descripcion) {
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+      <td>${item}</td>
+      <td>${precio}</td>
+      <td>${fecha}</td>
+      <td>${descripcion}</td>
+      <td><button class="eliminar">Eliminar</button></td>
+    `;
+    tableBody.appendChild(newRow);
+
+    guardarDatos();
   }
-    
-// Función para agregar una nueva actividad
-  function agregarGastos() {
-    let item = $('#item').val();
-    let precio = $('#precio').val();
-    let fecha = $('#fecha').val();
-    let descripcion = $('#descripcion').val();
 
-    $.post('/agregar-gastos', { item: item, precio:precio, fecha: fecha, descripcion:descripcion}, function() {
-        // Actualiza la tabla de actividades después de agregar una nueva actividad
-        $.get('/gastos', function(gastos) {
-          actualizarTabla(gastos);
-        });
+  function eliminarItem(item) {
+    const rows = tableBody.querySelectorAll("tr");
+    rows.forEach(function (row) {
+      if (row.firstElementChild.textContent === item) {
+        row.remove();
+      }
+    });
+
+    guardarDatos();
+  }
+
+  function guardarDatos() {
+    const rows = tableBody.querySelectorAll("tr");
+    const datos = [];
+
+    rows.forEach(function (row) {
+      const item = row.children[0].textContent;
+      const precio = row.children[1].textContent;
+      const fecha = row.children[2].textContent;
+      const descripcion = row.children[3].textContent;
+
+      datos.push({ item, precio, fecha, descripcion });
+    });
+
+    localStorage.setItem("gastos", JSON.stringify(datos));
+  }
+
+  function cargarDatos() {
+    const datos = JSON.parse(localStorage.getItem("gastos"));
+
+    if (datos) {
+      datos.forEach(function (dato) {
+        agregarItem(dato.item, dato.precio, dato.fecha, dato.descripcion);
       });
     }
-  /*
-  // Función para borrar una actividad existente
-  function borrarActividad(id) {
-    $.post('/borrar-actividad', { id: id }, function() {
-      // Actualiza la tabla de actividades después de borrar una actividad
-      $.get('/actividades', function(actividades) {
-        actualizarTabla(actividades);
-      });
-    });
-  }*/
-  function descargarExcel() {
-    // Obtiene los datos de la tabla
-    var data = [];
-    $('#tableBody tbody tr').each(function(i, row) {
-      var rowData = [];
-      $(row).find('td').each(function(j, cell) {
-        rowData.push($(cell).text());
-      });
-      data.push(rowData);
-    });
-  
-    // Crea un libro de Excel y agrega una hoja con los datos de la tabla
-    var workbook = XLSX.utils.book_new();
-    var worksheet = XLSX.utils.aoa_to_sheet(data);
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'gastos');
-    // Descarga el archivo Excel
-    XLSX.writeFile(workbook, 'gastos.xlsx');
   }
-  
-  
-  function reloadPage() {
-    location.reload();
-  }
-  
-  $(document).ready(function() {
-    $("#agregarItem").click(function() {
-      reloadPage();
-    });
-  });
-  
-  $('form').submit(function(event) {
-    // Evita que el formulario se envíe de forma predeterminada
-    event.preventDefault();
-    // Envía el formulario al servidor
-    agregarGastos();
-    // Recarga la página
-    reloadPage();
-  });
+});

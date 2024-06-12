@@ -61,15 +61,6 @@ function actualizarHora() {
 // Actualizar la hora cada segundo
 setInterval(actualizarHora, 1000);
 
-/*
-$(document).ready(function() {
-  // Carga los datos de las horas que se han ingresado si es que se han ingresado
-  $.get('/asistencia', function(asistencia) {
-    actualizar(asistencia);
-  });
-}); no es la idea que me muestre la hora del dia anterior, solo del dia actual
-*/
-//Aqui ya esta para ingresar los datos a la base de datos
 
 function marcarHora1(event, spanId, btnId,fecha) {
   // Evitar que el formulario se envíe automáticamente
@@ -218,95 +209,10 @@ function agregarHora4() {
   });
   }
 
-/*
-  // Enviar el formulario mediante una petición AJAX
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://127.0.0.1:3000/agregar-hora');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  console.log(fechaHora);//***este dato se envia al server
-  document.getElementById("hora1").value = fechaHora;
-  xhr.onload = function() {
-  // Comprobar la respuesta del servidor
-  if (xhr.status === 200) {
-    console.log('Formulario enviado correctamente');
-  } else {
-    console.log('Error al enviar el formulario');
-  }
-  };
-  xhr.send(JSON.stringify({ hora: fechaHora }));
-}*/
 
-/*
-// constrolasistencia.js
-import { miVariable } from './seleccionusuario.js';
-console.log(miVariable); // 
-*/
-
-/*
-// Función para actualizar la tabla de actividades
-function actualizarAsistencia(asistencia) {
-  $('#horaentradamanana span').empty();
-  asistencia.forEach(function(asis) {
-    let hora1 = asis.hora_entrada_manana;
-   
-    $('#horaentradamanana span').append(hora1)     
-    });
-}
-  
-// Función para agregar una hora entrada de la mañana
-function agregarHora1() {
-  let hora_entrada_manana= $('#hora_entrada_manana').val();
-
-
-  $.post('/agregar-hora', { nombre: nombre, hora_entrada_manana:hora_entrada_manana, fecha:fecha}, function() {
-      // Actualiza el span de la hora después de apretar el boton
-      $.get('/asistencia', function(asistencia) {
-        actualizarHora(asistencia);
-      });
-    });
-  }
-
-
-// Función para guardar los datos de asistencia en un archivo excel
-function guardarEnExcel(){
-  // Obtiene los datos de los spans
- alert("funcionalidad aun no implementada");
-  var data = [];
-  
-  
-
-  // Crea un libro de Excel y agrega una hoja con los datos de la tabla
-  var workbook = XLSX.utils.book_new();
-  var worksheet = XLSX.utils.aoa_to_sheet(data);
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'asistencia');
-
-  // Descarga el archivo Excel
-  XLSX.writeFile(workbook, 'asistencia.xlsx');
-}
-
-
-$(document).ready(function() {
-  $("#hora_entrada_manana").click(function() {
-    reloadPage();
-  });
-
-
-});
-*/
 function reloadPage() {
   location.reload();
 }
-/*
-$('form').submit(function(event) {
-  // Evita que el formulario se envíe de forma predeterminada
-  //event.preventDefault();
-  // Envía el formulario al servidor
-  console.log("aqui estoy")
-  agregarHora1();
-  // Recarga la página
-  reloadPage();
-});*/
-
 
 function guardarEnExcel() {
   // Obtener las horas
