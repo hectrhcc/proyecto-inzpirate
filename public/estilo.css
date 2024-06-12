@@ -159,7 +159,7 @@ margin-bottom: 1.4rem;
 }
 .logo{
   position: relative;
-  top:21rem;
+  top:-2rem;
   
 }
 
@@ -170,55 +170,42 @@ h3{
 }
 }
 
-/* Laptop */
-@media screen and (min-width: 1280px) and (max-width: 1599px) {
-  /* Estilos para laptop */
+@media screen and (min-width:1280px)  {
   #seccion-principal{
-    top:20.5rem;
+    top:-3.5rem;
 }
 .logo{
   position: relative;
-  top:18rem;
+  bottom:2rem;
   
 }
 
 h3{
   position: relative;
-  top:19rem;
-  font-size: xx-large;
+  top:-2.5rem;
+  font-size: x-large;
 }
 }
 
-/* Tablet */
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  /* Estilos para tablet */
-  #seccion-principal{
-    top:7rem;
-}
-.logo{
-  position: relative;
-  top:5rem;
-}
 
-h3{
-  position: relative;
-  top:6rem;
-}
-}
+
 
 /* Mobile */
 @media screen and (max-width: 767px) {
   /* Estilos para móvil */
   #seccion-principal{
-    top:-2.7rem;
+    top:-5rem;
 }
 .logo{
   position: relative;
-  top:-1.5rem;
+  top:-2.6rem;
 }
 
 h3{
   position: relative;
-  top:-1.5rem;
+  top:-3.6rem;
+  font-size: medium;
 }
+
+
 }
