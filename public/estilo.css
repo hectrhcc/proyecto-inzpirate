@@ -154,7 +154,7 @@ margin-bottom: 1.4rem;
 @media screen and (min-width: 320px) {
   /* Estilos para móvil */
   #seccion-principal{
-    top:-5.5rem;
+    top:-4.2rem;
 }
 .logo{
   position: relative;
@@ -170,59 +170,56 @@ h3{
 
 }
 
+@media screen and (min-width: 768px) {
+  #seccion-principal{
+    top:10rem;
+}
+.logo{
+  position: relative;
+  top:9rem;
+}
+
+h3{
+  position: relative;
+  top:9.8rem;
+  font-size: medium;
+}
+
+
+}
 @media screen and (min-width:1280px)  {
   #seccion-principal{
-    top:-3.5rem;
+    top:5rem;
 }
 .logo{
   position: relative;
-  bottom:2rem;
+  top:5rem;
   
 }
 
 h3{
   position: relative;
-  top:-2.5rem;
+  top:5rem;
   font-size: x-large;
 }
 }
 
-
-@media screen and (min-width:1440px)  {
-  #seccion-principal{
-    top:-3.5rem;
-  
-}
-.logo{
-  position: relative;
-  top:-2rem;
-  
-  
-}
-
-h3{
-  position: relative;
-  bottom:2.5rem;
-  
-  font-size: x-large;
-}
-}
 
  /* Desktop */
 @media screen and (min-width: 1600px) {
   /* Estilos para desktop */
   #seccion-principal{
-    top:23.5rem;
+    top:12.5rem;
 }
 .logo{
   position: relative;
-  top:-2rem;
+  top:10rem;
   
 }
 
 h3{
   position: relative;
-  top:22rem;
+  top:10rem;
   font-size: xx-large;
 }
 }
