@@ -211,10 +211,10 @@ h3{
 
 
 /* Mobile */
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) {
   /* Estilos para móvil */
   #seccion-principal{
-    top:-6rem;
+    top:-5rem;
 }
 .logo{
   position: relative;
