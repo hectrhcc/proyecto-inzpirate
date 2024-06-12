@@ -170,6 +170,26 @@ h3{
 }
 }
 
+@media screen and (min-width:1440px)  {
+  #seccion-principal{
+    top:-3.5rem;
+  
+}
+.logo{
+  position: relative;
+  top:-2rem;
+  
+  
+}
+
+h3{
+  position: relative;
+  bottom:2.5rem;
+  
+  font-size: x-large;
+}
+}
+
 @media screen and (min-width:1280px)  {
   #seccion-principal{
     top:-3.5rem;
@@ -177,7 +197,7 @@ h3{
 .logo{
   position: relative;
   bottom:2rem;
-  border:1px solid red;
+  
 }
 
 h3{
@@ -194,7 +214,7 @@ h3{
 @media screen and (max-width: 767px) {
   /* Estilos para móvil */
   #seccion-principal{
-    top:-5.5rem;
+    top:-6rem;
 }
 .logo{
   position: relative;
