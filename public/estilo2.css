@@ -248,7 +248,7 @@ button:disabled {
 @media (min-width:320px) and (max-width:767px){
 
 table , #tableBody{
-  width:90%;
+  width:60%;
   font-size:small;
   margin-top:1.6rem;
 }
