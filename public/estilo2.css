@@ -254,8 +254,8 @@ table , #tableBody{
 }
 
 th, tr, td{
-  margin: 0;
-  padding: 0;
+  margin: 0.1rem;
+  padding:0.4rem;
 }
 
 }
