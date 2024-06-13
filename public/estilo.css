@@ -167,6 +167,15 @@ h3{
   font-size: smaller;
 }
 }
+
+@media only screen and (min-width: 375px) and (min-height: 812px){
+  /* iPhone 11 Pro en modo vertical */
+  .logo{
+border:1px solid red;
+  }
+}
+
+
 @media screen and (min-width: 390px) {
   #seccion-principal{
     top:7.3rem;
