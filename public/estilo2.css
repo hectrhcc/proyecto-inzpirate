@@ -17,7 +17,7 @@ body {
   align-items: center;
   background-color:#fff;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
- /*overflow: hidden; oculta la barra*/
+ overflow:visible;
 }
 
 
@@ -243,4 +243,19 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+}
+
+@media (max-width:767px){
+
+table , #tableBody{
+  width:99%;
+  font-size:small;
+  margin-top:1.6rem;
+}
+
+th, tr, td{
+  margin: 0;
+  padding: 0;
+}
+
 }
