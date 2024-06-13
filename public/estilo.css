@@ -172,15 +172,15 @@ h3{
   /* iPhone 11 Pro en modo vertical */
   .logo{
   position: relative;
-  top:8.6rem;
+  top:4.6rem;
   }
   #seccion-principal{
     position: relative;
-    top:7.6rem;
+    top:3.1rem;
 }
 h3{
   position: relative;
-  top:7.9rem;
+  top:4rem;
 }
 }
 
